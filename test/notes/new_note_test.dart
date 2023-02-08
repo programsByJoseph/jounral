@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:journal/notes/new_note.dart';
+import 'package:journal/views/notes/new_note.dart';
 
 void main() {
   const testKey =  Key('1');

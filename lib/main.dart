@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:journal/notes/new_note.dart';
+import 'package:journal/views/notes/notes_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -47,13 +47,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,13 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const <Widget>[
-          NewNote()
-        ],
-      ),
-      // This trailing comma makes auto-formatting nicer for build methods.
+      body: NotesView()
     );
   }
 }
