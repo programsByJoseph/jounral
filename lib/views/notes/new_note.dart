@@ -42,17 +42,26 @@ class _NewNoteState extends State<NewNote> {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      autofocus: true,
-      focusNode: myFocusNode,
-      controller: textFieldController,
-      cursorColor: Colors.white,
-      onChanged: (value) {
-        _handleOnTextChange(value);
+    return ListView.builder(
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      itemCount: 1,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: TextFormField(
+            autofocus: true,
+            focusNode: myFocusNode,
+            controller: textFieldController,
+            cursorColor: Colors.white,
+            onChanged: (value) {
+              _handleOnTextChange(value);
+            },
+            decoration: inputDecorator,
+            keyboardType: TextInputType.multiline,
+            maxLines: null,
+          )
+        );
       },
-      decoration: inputDecorator,
-      keyboardType: TextInputType.multiline,
-      maxLines: null,
     );
   }
 }

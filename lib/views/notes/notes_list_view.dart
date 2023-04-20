@@ -10,6 +10,14 @@ class NotesListView extends StatelessWidget {
     required this.notes,
   }) : super(key: key);
 
+  static const inputDecorator = InputDecoration(
+    // border: InputBorder.none
+    border: OutlineInputBorder(),
+    enabledBorder: OutlineInputBorder(
+      borderSide: BorderSide(width: 0.75, color: Colors.white),
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -18,7 +26,13 @@ class NotesListView extends StatelessWidget {
       itemCount: notes.length,
       itemBuilder: (context, index) {
         return ListTile(
-            title: Text(notes[index].getText())
+            title: TextFormField(
+              initialValue: notes[index].getText(),
+              cursorColor: Colors.white,
+              decoration: inputDecorator,
+              keyboardType: TextInputType.multiline,
+              maxLines: null,
+            )
         );
       },
     );
